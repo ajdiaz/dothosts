@@ -1,0 +1,4 @@
+#! /bin/sh
+# libdothosts.so helper
+export LD_PRELOAD=/usr/local/lib/libdothosts.so
+exec "$@"

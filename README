@@ -1,0 +1,54 @@
+libdothosts.so
+==============
+
+The dothosts library is a LD_PRELOAD based library which allows you to
+have a user based hosts file.
+
+The library will catch all calls to gethostbyname(3), gethostbyname2(3),
+getaddrinfo(3),gethostbyname_r(3) and gethostbyname2_r(3) and perform
+a search of the requested host in a local (i.e. a file into home user
+directory) to resolve the hostname. If not found in this file, then proceed
+with the regular resolv mechanism.
+
+---- Install ---------------------------------------------------------------
+
+make && make test && make install
+
+If you want to use the 'dothosts' helper, just copy the script to your path.
+The make install proccess will not copy helper script.
+
+---- Usage -----------------------------------------------------------------
+
+To use dothosts just type:
+
+  export LD_PRELOAD=path/to/libdothosts.so
+
+And then new applications will use ~/.hosts file as /etc/hosts (the original
+/etc/hosts will be also used if host does not match in ~/.hosts).
+
+Aditionally, environment variable DOTHOSTS will use to change the path of
+local .hosts file, for exaple:
+
+  export DOTHOSTS=~/.config/hosts
+
+You can use the dothost utility to run an application with library loaded,
+in the form:
+
+  dothosts wget http://test
+
+---- Limitations ----------------------------------------------------------
+
+- Only works for programs that use glibc calls to resolve hostnames.
+- No working for SUID programs for security reasons.
+
+---- Development ----------------------------------------------------------
+
+For bug report please fill a issue in the github project [1], or send an
+email to ajdiaz+dothosts at ajdiaz.me
+
+[1] https://github.com/ajdiaz/dothosts/issues
+
+Any pull-request is also welcome.
+
+
+Happy Hacking!
