@@ -43,12 +43,19 @@ in the form:
 
 ---- Development ----------------------------------------------------------
 
-For bug report please fill a issue in the github project [1], or send an
-email to ajdiaz+dothosts at ajdiaz.me
+The main repo is hosted in sourcehut:
 
-[1] https://github.com/ajdiaz/dothosts/issues
+  https://git.sr.ht/~ajdiaz/dothosts
 
-Any pull-request is also welcome.
+I've a mirror also in github:
+
+  https://github.com/ajdiaz/dothosts
+
+For bug report please send email to the list:
+
+  ~ajdiaz/public-inbox@lists.sr.ht
+
+Any patch is also welcome.
 
 
 Happy Hacking!
