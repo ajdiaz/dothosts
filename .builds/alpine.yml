@@ -1,0 +1,8 @@
+image: alpine/edge
+sources:
+  - https://git.sr.ht/~ajdiaz/dothosts
+tasks:
+  - build: |
+      make -C dothosts
+  - test: |
+      make -C dothosts test
